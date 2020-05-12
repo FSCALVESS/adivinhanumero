@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<link rel="stylesheet" href="css/numero.css" />
+		<title>Adivinhe o Número</title>
+		<meta charset="iso-8859-1">
+	</head>
+<body onload="resetar()">
+		
+		<div id="conteudo">
+		<h1>Adivinhe o número</h1>
+		<div id="n1">5</div>
+		<input type="text" id="n2" autofocus/>
+		<div style="clear:both"></div>
+		<button class="verifica" onclick="verificar()">Verificar</button>
+		<button class="limpa" onclick="limpar()">Reiniciar</button>
+		</div>
+		
+		<script type="text/javascript">
+			function verificar(){
+				var n1 = document.getElementById("n1").innerHTML;
+				var n2 = document.getElementById("n2").value;
+				if(n2 == ""){
+					alert("INFORME UM NÚMERO");
+					document.getElementById("n2").focus();
+				}
+			else
+				if(n1 == n2){
+					alert("PARABÉNS! \nVOCÊ ACERTOU!");
+					document.getElementById("n1").style.display = 'block';
+ 				}
+			else
+				{
+					alert("VOCÊ ERROU! \nTENTE NOVAMENTE.");
+					document.getElementById("n2").value = "";
+				}
+	 		
+				resetar();
+				}
+
+			function resetar(){
+					document.getElementById("n2").value;
+					document.getElementById("n2").focus();
+				}
+
+			function limpar(){
+					window.location.reload();
+					document.getElementById("n2").value = "";
+					document.getElementById("n1").style.display = 'none';
+					document.getElementById("n2").focus();
+					var numero = Math.floor(Math.random() * 10);
+					document.getElementById("n1").innerHTML = numero;		
+			}
+		</script>
+		<div id="instrucoes">
+			<h1 class="comojogar">Instruções para jogar</h1>
+			<ol type="1">
+				<li>Digite números de 0 a 10 e clique em "Verificar"
+				<li>Ao encontrar o número, clique em "Reiniciar"
+			</ol>
+			<h3 class="msg">Divirta-se!!!!</h3>			
+		</div>
+		
+	</body>
+	</html>
